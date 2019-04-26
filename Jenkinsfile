@@ -1,7 +1,7 @@
 pipeline{
                 environment{
                                 registry = "juanggithub/d4a"
-                                registryCredential = "Amaralgauto1"
+                                registryCredential = "dockerhub"
                         }
         agent any
         stages{
@@ -18,7 +18,7 @@ pipeline{
                         stage('Building Image'){
                                 steps{
                                        script{
-                                                                                                dockerImage=docker.build registry + ": $BUILDNUMBER"
+                                                                                                dockerImage=docker.build registry + ":$BUILD_NUMBER"
                                         }
                                                                         }
                         }
