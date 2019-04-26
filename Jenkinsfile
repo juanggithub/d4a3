@@ -13,7 +13,7 @@ pipeline{
 		}
 		stage('Building Image'){
 			steps{
-				sh 'sudo docker build --tag=php /home/backup/php54''
+				sh 'sudo docker build --tag=php /home/backup/php54'
 			}
 		}
 	
