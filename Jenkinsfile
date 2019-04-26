@@ -1,26 +1,23 @@
 pipeline{
-	agent any
-	stages{
-			stage('Starting'){
-				steps{
-					sh 'echo starting...'
+        agent any
+        stages{
+                        stage('Starting'){
+                                steps{
+                                        sh 'echo starting...'
+                                }
+                        }
+                        stage('Checking Docker'){
+                                steps{
+                                        sh 'sudo docker ps'
+                                }
+                        }
+                        stage('Building Image'){
+                                steps{
+                                       script{
+						dockerImage=docker.build registry + ": $BUILDNUMBER"
+  	                                }
 				}
-			}
-			stage('Checking Docker'){
-				steps{
-					sh 'sudo docker ps'
-				}
-			}
-			stage('Building Image'){
-				steps{
-					sh 'sudo docker build --tag=php1 .'
-					}
-			}
-			stage('Compose'){
-				steps{
-				sh 'sudo docker-compose up -d'
-				}
-			}
-	
-		}
+                        }
+                }
 }
+
