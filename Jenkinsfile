@@ -11,6 +11,6 @@ pipeline{
 				sh 'sudo docker ps'
 			}
 		}
-		}
+	
 	}
 }
