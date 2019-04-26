@@ -1,7 +1,7 @@
 pipeline{
 		environment{
 				registry = "juanggithub/d4a"
-				registryCredential = "Amaralgauto1"
+				registryCredential = "dockerhub"
 			}
         agent any
         stages{
@@ -22,6 +22,14 @@ pipeline{
                                         }
 									}
                         }
-                }
+						stage('Push Image DockerHub'){
+								steps{
+										script{
+											docker.withRegistry('',registryCredential)
+												
+												dockerImage.push()
+										}
+								}
+			}
 }
 
