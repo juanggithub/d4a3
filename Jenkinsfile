@@ -15,6 +15,9 @@ pipeline{
 			steps{
 				sh 'sudo docker build --tag=php .'
 			}
+			steps{
+				sh 'sudo docker-compose up'
+			}
 		}
 	
 	}
