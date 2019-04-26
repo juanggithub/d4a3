@@ -11,6 +11,11 @@ pipeline{
 				sh 'sudo docker ps'
 			}
 		}
+		stage('Building Image'){
+			steps{
+				sh 'sudo docker build --tag=php /home/backup/php54''
+			}
+		}
 	
 	}
 }
