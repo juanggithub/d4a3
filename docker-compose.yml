@@ -14,10 +14,8 @@ services:
     ports:
       - 3306:3306
 
-  php:
-    image: juangdocker/d4a3:apache1
-    volumes:
-      - ./code/:/var/www/html
+  php1:
+    image: php1
     expose:
       - 80
     ports:
